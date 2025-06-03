@@ -93,23 +93,18 @@ public class UserRepository extends BaseRepository<User, CreateUserDto, UpdateUs
     }
 
     @Override
-    User udpate(UpdateUserDto updateUserDto) {
-        return null;
-    }
-
-
-    public User update(UpdateUserDto userDto){
+    User update(UpdateUserDto userDto) {
         String query = """
                 UPDATE USERS
                 SET EMAIL = ?
                 WHERE ID = ?
                 """;
-        try{
+        try {
             PreparedStatement pstm = this.connection.prepareStatement(query);
             pstm.setString(1, userDto.getEmail());
             pstm.setInt(2, userDto.getId());
             pstm.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return this.getById(userDto.getId());
