@@ -54,7 +54,7 @@ abstract class BaseRepository<Model, CreateModelDto, UpdateModelDto> {
 
     abstract Model create(CreateModelDto createModelDto);
 
-    abstract Model udpate(UpdateModelDto updateModelDto);
+    abstract Model update(UpdateModelDto updateModelDto);
 
 //    abstract boolean delete(int id);
 
